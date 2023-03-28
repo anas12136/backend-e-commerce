@@ -39,12 +39,3 @@ export const editProduct = async (req:any, res:any)=>{
    }
     
 } 
-export const DeleteAll = async(req:any,res:any)=>{
-    try {
-        const deleteProducts = await ProductModel.deleteMany()
-        res.send(deleteProducts)
-    } catch (error) {
-        
-    }
-
-}

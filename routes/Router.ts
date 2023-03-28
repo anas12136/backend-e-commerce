@@ -17,7 +17,6 @@ router.post('/addProduct',upload.single('image.data'),createProductController)
 
 //Delete Product
 router.delete('/deleteProduct/:id',deleteProduct)
-router.delete('/deleteProducts',DeleteAll)
 
 //Edit Product
 router.patch('/editProduct/:id',editProduct)
