@@ -4,6 +4,8 @@ import { HomePage } from "../controllers/HomeController";
 import multer from 'multer'
 import passport from "passport";
 import { facebookLogin, googleLogin, loginController, signupController } from "../controllers/AuthController";
+import { cartController, cartGetController } from "../controllers/cartController";
+import { createBlog, deleteBlog, getBlog, updateBlog } from "../controllers/BlogController";
 
 export const router = express.Router()
 //Home Page
@@ -21,7 +23,7 @@ router.post('/addProduct',upload.single('image.data'),createProductController)
 router.delete('/deleteProduct/:id',deleteProduct)
 
 //Edit Product
-router.patch('/editProduct/:id',editProduct)
+router.put('/editProduct/:id',upload.single('image.data'),editProduct)
 
 //Social login
 
@@ -42,3 +44,13 @@ router.get('/auth/google/callback',
 router.post('/signup',signupController);
 router.get('/login', loginController)
 
+//cart
+router.post('/cart/:id',cartController)
+router.get('/cart', cartGetController)
+
+
+//Blog
+router.get('/blog',getBlog)
+router.post('/blog',upload.single('image.data'), createBlog)
+router.put('/blog/:id',upload.single('image.data'),updateBlog)
+router.delete('/blog/:id',deleteBlog)

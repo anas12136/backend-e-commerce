@@ -8,7 +8,8 @@ const CartSchema = new mongoose.Schema({
         type: Number,
     },
     quantity: {
-        type: Number
+        type: Number,
+        default: 1,
     },
     total: {
         type:String
@@ -17,7 +18,12 @@ const CartSchema = new mongoose.Schema({
         type:String
     },
     giftWrap:{
-        type: Boolean
+        type: Boolean,
+        default: false
+    },
+    sessionId:{
+        type:String,
+        required: true
     }
 
 })
